@@ -6,22 +6,25 @@ var fizzBuzzer = function(){
         var output = [];
         
         for (var currentNumber = 1; currentNumber <= number; currentNumber++) {
-              
-            if (isMultipleOfFive(currentNumber) && isMultipleOfThree(currentNumber)) {
-                output.push("FizzBuzz");
-            }           
-            else if (isMultipleOfFive(currentNumber)) {
-                output.push("Buzz");
-            }
-            else if (isMultipleOfThree(currentNumber)) {
-                output.push("Fizz");
-            }
-            else { 
-                output.push(currentNumber.toString());
-            }
+            output.push(calculateOutput(currentNumber));
         }
         
         return output.join(outputSeparator);
+    };
+    
+    var calculateOutput = function (number) {
+        if (isMultipleOfFive(number) && isMultipleOfThree(number)) {
+            return "FizzBuzz";
+        }           
+        else if (isMultipleOfFive(number)) {
+            return "Buzz";
+        }
+        else if (isMultipleOfThree(number)) {
+            return "Fizz";
+        }
+        else { 
+            return number.toString();
+        }
     };
     
     var isMultipleOfFive = function(number) {
